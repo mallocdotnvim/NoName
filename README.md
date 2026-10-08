@@ -14,10 +14,8 @@ NoName (無名) is a first-person-shooter game using Jaylib. (Yes I'm not kiddin
 NoName/
 ├── assets/
 ├── lib/
-├── out/
 ├── scripts/
-│   ├── setup-unix
-│   └── setup-windows
+│   └── setup-unix
 ├── src/
 │   └── main/
 │       └── java/
@@ -26,7 +24,6 @@ NoName/
 │           ├── Body.java
 │           └── Player.java
 ├── pox.xml
-├── target/
 └── README.md
 ```
 
@@ -43,7 +40,13 @@ chmod +x scripts/setup-unix
 ./scripts/setup-unix
 ```
 
-### Windows
-```console
-scripts/setup-windows
-```
+## Todo
+
+- [x] Camera control and basic movements
+- [x] Simple map generator
+- [] Collision Boxes 
+- [] Assets (such as picture, music, font, etc.)
+- [] Basic UI
+- [] Rewrite Windows `bat` file (this is somehow difficult)
+- [] Releases
+ 
