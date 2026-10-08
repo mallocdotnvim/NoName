@@ -1,0 +1,12 @@
+set -xe
+export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+export PATH="$JAVA_HOME/bin:$PATH"
+java -version
+
+if [ -d out ]; then
+    rm -r out
+fi
+mkdir -p out
+
+javac -cp lib/jaylib-6.0.1-0.jar -d out src/main/java/*.java
+java -XstartOnFirstThread -cp "lib/jaylib-6.0.1-0.jar:out" Main
