@@ -31,7 +31,7 @@ public class Player
   private Vector2 sensitivity;
   private float headTimer = 0.0f;
 
-  private Body body;
+  public Body body;
   private Camera3D core;
 
   private float headLerp = STAND_HEIGHT;
@@ -41,7 +41,6 @@ public class Player
   public Player()
   {
     this.body = new Body();
-    
     body.position
       .x(0.0f)
       .y(5.0f + (BOTTOM_HEIGHT + headLerp))
@@ -142,6 +141,10 @@ public class Player
 
   private void updataCameraFPS(Vector2 lookRotation, Vector2 lean, float headTimer)
   { 
+    
+
+
+    
     final Vector3 up = new Vector3()
       .x(0.0f)
       .y(1.0f)
@@ -216,21 +219,5 @@ public class Player
   public Camera3D getCamera()
   {
     return core;
-  }
-
-  public BoundingBox getBoundingBox()
-  {
-    float detectWidth = WIDTH / 2.0f;
-    float detectDepth = DEPTH / 2.0f;
-
-    return new BoundingBox()
-      .min(new Vector3()
-        .x(body.position.x() - detectWidth)
-        .y(body.position.y())
-        .z(body.position.z() - detectDepth))
-      .max(new Vector3()
-        .x(body.position.x() + detectWidth)
-        .y(body.position.y() + HEIGHT)
-        .z(body.position.z() + detectDepth));
   }
 }

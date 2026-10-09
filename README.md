@@ -16,13 +16,12 @@ NoName/
 ├── lib/
 ├── scripts/
 │   └── setup-unix
-├── src/
-│   └── main/
-│       └── java/
-│           ├── Map.java
-│           ├── Main.java
-│           ├── Body.java
-│           └── Player.java
+├── src/main/java/
+│   ├── Map.java
+│   ├── Main.java
+│   ├── Body.java
+│   └── Player.java
+│           
 ├── pox.xml
 └── README.md
 ```
@@ -43,10 +42,17 @@ chmod +x scripts/setup-unix
 ## Todo
 
 - [x] Camera control and basic movements
-- [x] Simple map generator
+- [] Simple map generator
 - [] Collision Boxes 
 - [] Assets (such as picture, music, font, etc.)
 - [] Basic UI
 - [] Rewrite Windows `bat` file (this is somehow difficult)
 - [] Releases
- 
+
+
+## Credits
+
+This project is built with the help of these open source library and community.
+
+- [Jaylib — Java JNI bindings for Jaylib](https://github.com/electronstudio/jaylib/)
+- [Raylib — A simple and easy-to-use library to enjoy videogames programming](https://github.com/raysan5/raylib)

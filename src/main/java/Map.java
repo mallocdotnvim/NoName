@@ -9,23 +9,23 @@ public class Map
   private ArrayList<Float> heights;
   private ArrayList<Vector3> positions;
 
-  private int MAX_VALUE;
+  public int MAP_SIZE;
   private float cubegen;
 
-  public Map(int MAX_VALUE)
+  public Map(int MAP_SIZE)
   {
-    this.MAX_VALUE = MAX_VALUE;
+    this.MAP_SIZE = MAP_SIZE;
 
-    colors = new ArrayList<Color>(MAX_VALUE);
-    heights = new ArrayList<Float>(MAX_VALUE);
-    positions = new ArrayList<Vector3>(MAX_VALUE);
+    colors = new ArrayList<Color>(MAP_SIZE);
+    heights = new ArrayList<Float>(MAP_SIZE);
+    positions = new ArrayList<Vector3>(MAP_SIZE);
     terraGen();
   }
   
   private void terraGen()
   {
     this.cubegen = (float)GetRandomValue(5, 10);
-    for (int i = 0; i < MAX_VALUE; i++) {
+    for (int i = 0; i < MAP_SIZE; i++) {
       heights.add((float)GetRandomValue(1, 50));
       positions.add(new Vector3()
         .x((float)GetRandomValue(-100, 100))
@@ -49,24 +49,9 @@ public class Map
               color);
     DrawSphere(new Vector3().x(150.0f).y(150.0f).z(0.0f), 50.0f, RED);
     DrawGrid(20, 10.0f);
-    for (int i = 0; i < MAX_VALUE; i++) {
+    for (int i = 0; i < MAP_SIZE; i++) {
       DrawCube(positions.get(i), cubegen, heights.get(i), cubegen, colors.get(i));
     }
   }
 
-  public BoundingBox getBoundingBox(int index)
-  {
-    Vector3 boxPosition = positions.get(index);
-    float detect = cubegen / 2.0f;
-
-    return new BoundingBox()
-      .min(new Vector3()
-        .x(boxPosition.x() - detect)
-        .y(boxPosition.y() - detect)
-        .z(boxPosition.z() - detect))
-      .max(new Vector3()
-        .x(boxPosition.x() + detect)
-        .y(boxPosition.y() + detect)
-        .z(boxPosition.z() + detect));
-  }
 }
